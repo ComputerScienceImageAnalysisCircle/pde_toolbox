@@ -1,0 +1,118 @@
+#
+#
+# README
+# 
+# Continuous maximal flows
+#
+# Version 0.2 Hugues Talbot	21 Jan 2009
+#
+
+This code implements continuous maximal flows as per the following article
+
+
+@article{ 10.1109/TPAMI.2006.12,
+author = {Ben Appleton and Hugues Talbot},
+title = {Globally Minimal Surfaces by Continuous Maximal Flows},
+journal ={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+volume = {28},
+number = {1},
+issn = {0162-8828},
+year = {2006},
+pages = {106-118},
+doi = {http://doi.ieeecomputersociety.org/10.1109/TPAMI.2006.12},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+}
+
+
+Prerequisites :
+===============
+
+
+	This code should work on any reasonably POSIX system, as it uses posix threads.
+	It has been tested on various versions of Linux, Mac OS/X and Windows using 
+	the posix threads at http://sourceware.org/pthreads-win32/
+
+	The threading code can always be disabled by commenting out the following line
+
+#define CONTMAXFLOW_MULTITHREADED
+
+	in contmaxflow.c
+
+	You will need the GNU development toolchain, available natively with Linux,
+	with XCode under OS/X and with mingw32 or cygwin under Windows.
+
+Compilation:
+===========
+	
+	With GNU make, type the following at the prompt (% is the prompt)
+
+% make clean
+% make depend
+% make
+% make test
+
+If all goes well you should obtain a segmentation of a 48x48 image of the heart, similar
+to the image "expected_result.pgm". This is an image of the simulated pressure field.
+Isolines of this field provide a contour segmentation.
+
+USAGE:
+=====
+
+	The result is a stand-alone executable, called "cont_max_flow"
+
+usage: ./cont_max_flow image_to_segment image_source image_sink image_out row col [-d]
+
+
+       Images are expected in the PGM format. The row and column arguments are redundant
+       but compulsory in this version.
+
+       -d shows some debugging messages.
+
+HISTORY:
+=======
+	Ben Appleton and Hugues Talbot wrote a first 2D version 2002-2004
+	Ben Appleton wrote the core this version, 3D capable and multithreaded in 2004-2005
+	Camille Couprie wrote the standalone test program and early packaging in mid-2008.
+	Patryk Zabkiewicz adjust the Couprie's wrapper to 3D imagery in late-2013.
+
+
+
+THANKS:
+=======
+
+	This work was made possible thanks to An Australian post-graduate scholarship 
+	awarded to Ben Appleton.
+	
+	During this work Hugues Talbot was supported 1994-2004 by the Commonwealth 
+	Science and Industry Research Organisation (CSIRO) Australia. He was supported
+	2004-2009 by the Chambre de Commerce et d'Industrie de Paris (CCIP).
+
+	Camille Couprie was supported by Siemens USA 2008.
+
+	Patryk Zabkiewicz is independent researcher.
+
+
+COPYRIGHT AND LICENCE
+=====================
+
+This version is copyrighted Ben Appleton and Hugues Talbot, 2004-2009, and distributed
+under the terms of the GPL, the GNU General Public Licence, version 3. 
+
+http://www.gnu.org/licenses/gpl.html
+
+
+CONTACT:
+========
+
+For all contacts and inquiries, please mail to
+
+    h.talbot@esiee.fr
+
+or
+
+    hugues.talbot@gmail.com
+
+
+
+Hugues Talbot	21 Jan 2009   

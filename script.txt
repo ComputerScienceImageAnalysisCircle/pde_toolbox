@@ -1,0 +1,4 @@
+#! /bin/sh
+gcc -lpthread -lm main.c bimage.c bimage_utils.c \
+contmaxflow.c FMM.c LSTBmsg.c LSTBmsgs.c maxflow.c \
+lbimage_utils.c lcontmaxflow.c lreadLSTBmsgs.c -o cont_max_flow
